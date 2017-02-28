@@ -1,0 +1,110 @@
+﻿<html>
+<head>
+    <title>Desktop</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<header>
+    <div class="logo">
+        <h1>Logotype</h1>
+    </div>
+    <div id="topMenu">
+        <nav>
+            <ul>
+                <li><a href="#">FERRY COMPANIES</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">REVIEWS</a></li>
+                <li><a href="#">USEFUL INFORMATION</a></li>
+                <li><a href="#">AFFILIATES</a></li>
+                <li><a href="#">BLOG</a></li>
+            </ul>
+        </nav>
+    </div><!--1st line, right side-->
+</header>
+
+<div id="menuContainer">
+    <nav>
+        <ul _id="">
+            <li class="menuItem">
+                <a href="#"><img class="menuImage" src="images/star1.png">
+                    <div class="menuText">4.7 Rate</div>
+                    <div class="menuText2">Based on 450 Reviews</div>
+                </a>
+            </li>
+            <li class="menuItem">
+                <a href="#"><img class="menuImage" src="images/pointer1.png">
+                    <div class="menuText">All Destinations</div>
+                    <div class="menuText2">Greece, France & USA</div>
+                </a>
+            </li>
+            <li class="menuItem">
+                <a href="#"><img class="menuImage" src="images/lock2.png">
+                    <div class="menuText">100% Secure</div>
+                    <div class="menuText2">PCI Compliance</div>
+                </a>
+
+            </li>
+        </ul>
+    </nav>
+</div><!--Header's 2nd line-->
+
+<main>
+    <div id="form">
+        <form onSubmit="return false;">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <div>
+                            <p>FROM</p>
+                            <input class="long" list="departure" name="dep" placeholder="Departure Location">
+                            <datalist id="departure">
+                                <option value="Paris">
+                                <option value="Berlin">
+                                <option value="Athens">
+                                <option value="New York">
+                            </datalist>
+                        </div>
+                    </td>
+                </tr>
+                <td colspan="2">
+                    <div class="arrival">
+                        <p>TO</p>
+                        <input class="long" list="arrival" name="arr" placeholder="Arrival Location">
+                        <datalist id="arrival">
+                            <option value="Paris">
+                            <option value="Berlin">
+                            <option value="Athens">
+                            <option value="New York">
+                        </datalist>
+                    </div>
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="departure"><p>DEPARTURE</p><input name="depDate" class="short" type="date"
+                                                                      placeholder="dd/mm/yyyy"/></div>
+                    </td>
+                    <td>
+                        <div class="departure"><p>RETURN</p><input class="short" name="arDate" type="date"
+                                                                   placeholder="dd/mm/yyyy"/></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="short2" type="number" name="pasNum" min="1" placeholder="PASSENGERS">
+                    </td>
+                    <td>
+                        <input id="short3" type="number" name="vehNum" min="0" placeholder="VEHICLES">
+                    </td>
+                </tr>
+                <td colspan="2">
+                    <input id="search" value="SEARCH" type="submit"/>
+                </td>
+
+            </table>
+        </form>
+    </div><!--form-->
+</main>
+</body>
+</html>
