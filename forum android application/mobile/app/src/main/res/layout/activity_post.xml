@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/fullback1"
+    tools:context="near2u.com.near2u.PostActivity">
+
+    <TextView android:id="@+id/posts_text"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/sback"
+        android:singleLine="true"
+        android:text="" />
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/add_new_post_button"
+            android:textAllCaps="false"
+            android:onClick="addNewPost"/>
+
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/back"
+            android:textAllCaps="false"
+            android:onClick="backToTopics"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/postsListView"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        />
+
+</LinearLayout>

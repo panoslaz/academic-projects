@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="near2u.com.near2u.MaxDistance"
+    tools:showIn="@layout/activity_max_distance">
+
+    <TextView
+        android:id="@+id/seekBarTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/seekBar1"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/max_distance"/>
+
+    <SeekBar
+        android:id="@+id/mapsSeekBar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="26dp"
+        android:progress="50000"
+        android:max="10062"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="searchMaps"
+        android:text="@string/search"
+        android:textAllCaps="false"
+        android:id="@+id/maxDistanceButton"/>
+
+</LinearLayout>

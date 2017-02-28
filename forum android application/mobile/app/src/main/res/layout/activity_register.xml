@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/fullback1"
+    android:orientation="vertical"
+    tools:context="near2u.com.near2u.RegisterActivity">
+
+    <EditText android:id="@+id/regu_user_name"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:singleLine="true"
+        android:hint="User name"
+        android:text="" />
+
+    <EditText android:id="@+id/regu_password"
+        android:layout_width="fill_parent"
+        android:inputType="textPassword"
+        android:layout_height="60dp"
+        android:singleLine="true"
+        android:hint="password"
+        android:text="" />
+
+    <EditText android:id="@+id/regu_occupation"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:singleLine="true"
+        android:hint="Occupation"
+        android:text="" />
+
+    <EditText android:id="@+id/regu_birth_date"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:singleLine="true"
+        android:hint="Birth date"
+        android:text="" />
+
+    <EditText android:id="@+id/regu_interests"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:singleLine="true"
+        android:hint="Interests"
+        android:text="" />
+
+    <EditText android:id="@+id/regu_hobbies"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:singleLine="true"
+        android:hint="hobbies"
+        android:text="" />
+
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+        android:text="@string/register_user_button"
+        android:textAllCaps="false"
+        android:onClick="saveUser"/>
+
+</LinearLayout>

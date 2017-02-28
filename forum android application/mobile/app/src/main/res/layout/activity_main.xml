@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background = "@drawable/android"
+
+    android:weightSum="1.0"
+    >
+
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:textColor="@color/wallet_highlighted_text_holo_light"
+
+        android:onClick="goToForum"
+        android:textAllCaps="false"
+        android:text="@string/forum_button"
+        android:background="#295055"
+
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"></FrameLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:textColor="@color/wallet_highlighted_text_holo_light"
+        android:onClick="goToNear2u"
+        android:textAllCaps="false"
+        android:text="Find me"
+        android:background="#295055"
+        android:layout_marginTop="30dp"
+        />
+
+</LinearLayout>

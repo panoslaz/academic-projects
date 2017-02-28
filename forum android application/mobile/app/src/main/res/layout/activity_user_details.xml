@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fullback1"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="near2u.com.near2u.UserDetailsActivity"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_user_details">
+
+    <TextView android:id="@+id/user_info"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:textSize="50sp"
+        android:singleLine="true"
+        android:text="info"
+        android:background="@drawable/sback"/>
+
+    <TextView android:id="@+id/ud_user_name"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:textSize="20dp"
+        android:singleLine="true"
+        android:text="" />
+
+    <TextView android:id="@+id/ud_occupation"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:textSize="20dp"
+        android:singleLine="true"
+        android:text="" />
+
+    <TextView android:id="@+id/ud_birth_date"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:textSize="20dp"
+        android:singleLine="true"
+        android:text="" />
+
+    <TextView android:id="@+id/ud_interests"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:textSize="20dp"
+        android:singleLine="true"
+        android:text="" />
+
+    <TextView android:id="@+id/ud_hobbies"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:textSize="20dp"
+        android:singleLine="true"
+        android:text="" />
+
+</LinearLayout>
