@@ -22,6 +22,9 @@ import near2u.com.near2u.entities.History;
 import near2u.com.near2u.helpers.ServerHelper;
 import near2u.com.near2u.helpers.SessionManager;
 
+/**
+ * Activity for the user history view.
+ */
 public class HistoryActivity extends AppCompatActivity {
 
     ListView historyListView;
@@ -52,6 +55,12 @@ public class HistoryActivity extends AppCompatActivity {
             final int userId = SessionManager.getIntFromSession(getApplicationContext(), "userId");
             client.get("http://" + ServerHelper.getIP()+ "/near2u2/user/" + userId + "/history", new RequestParams(),new JsonHttpResponseHandler() {
 
+                /**
+                 * Get history messages of the user and create a list of history objects
+                 * @param statusCode
+                 * @param headers
+                 * @param jsonObj
+                 */
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject jsonObj) {
 

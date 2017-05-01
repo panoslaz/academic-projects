@@ -13,6 +13,9 @@ class TopicRepository
         $this->conn = $db->connect();
     }
 
+    /**
+     * get topics for a forum
+     */
     function getTopicsForForum($forumId) {
 
         $stmt = $this->conn->prepare("SELECT * FROM n2u_forum_topic WHERE forum_id=? ORDER BY date_created DESC");
@@ -29,6 +32,9 @@ class TopicRepository
         return $forums;
     }
 
+    /**
+     * create a new topic
+     */
     function addTopic($title, $text, $userId, $forumId) {
 
         $stmt = $this->conn->prepare("INSERT INTO n2u_forum_topic(title, text, user_id, forum_id, date_created) values(?, ?, ?, ?, NOW())");

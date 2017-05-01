@@ -1,5 +1,9 @@
 package near2u.com.near2u.entities;
 
+
+/**
+ * The class represents a forum.
+ */
 public class Forum {
 
     Integer id;

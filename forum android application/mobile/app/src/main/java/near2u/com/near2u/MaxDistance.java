@@ -11,6 +11,9 @@ import android.widget.SeekBar;
 
 import near2u.com.near2u.helpers.SessionManager;
 
+/**
+ *  activity for max distance view
+ */
 public class MaxDistance extends AppCompatActivity {
 
     SeekBar seekBar;

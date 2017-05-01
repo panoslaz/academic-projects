@@ -13,6 +13,9 @@ class MessageRepository {
         $this->conn = $db->connect();
     }
 
+    /**
+     * get messages for user id
+     */
     function getMessagesByUserId($userId) {
 
         $stmt = $this->conn->prepare("SELECT * FROM n2u_message WHERE from_user_id = ?");
@@ -24,6 +27,9 @@ class MessageRepository {
 
     }
 
+    /**
+     * create a new message
+     */
     function createMessage($message, $userId) {
 
         $stmt = $this->conn->prepare("INSERT INTO n2u_message(message, from_user_id, date_sent) values(?, ?,NOW())");
@@ -34,6 +40,7 @@ class MessageRepository {
         $stmt->close();
         return "Success ";
     }
+
 
     function assignMessageToRecipient($messageId, $recipientId) {
 

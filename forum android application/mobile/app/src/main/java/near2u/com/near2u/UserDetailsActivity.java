@@ -25,6 +25,9 @@ import java.util.List;
 import near2u.com.near2u.entities.UserDetails;
 import near2u.com.near2u.helpers.ServerHelper;
 
+/**
+ * Activity for UserDetails View.
+ */
 public class UserDetailsActivity extends Activity {
 
     Intent intent;
@@ -49,6 +52,9 @@ public class UserDetailsActivity extends Activity {
         loadUserDetails();
     }
 
+    /**
+     * Call the back end service to get the user details, and set the values to the TextViews.
+     */
     private void loadUserDetails() {
         AsyncHttpClient client = new AsyncHttpClient();
         final List<UserDetails> userDetails = new ArrayList<UserDetails>();

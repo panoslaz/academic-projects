@@ -18,6 +18,9 @@ import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 import near2u.com.near2u.helpers.ServerHelper;
 
+/**
+ * Activity for registration view
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText unameET;
@@ -72,7 +75,6 @@ public class RegisterActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
 
-
             RequestParams params = new RequestParams();
             params.put("username", username);
             params.put("password", password);
@@ -99,7 +101,6 @@ public class RegisterActivity extends AppCompatActivity {
                     JSONObject obj = new JSONObject(new String(responseBody));
                     // When the JSON response has status boolean value assigned with true
                     if (obj.getString("message") != null) {
-//                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
                         // Navigate to posts screen
                         navigateToLoginPage();
 

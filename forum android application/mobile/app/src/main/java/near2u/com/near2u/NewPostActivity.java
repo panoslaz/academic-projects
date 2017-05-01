@@ -25,6 +25,9 @@ import java.io.UnsupportedEncodingException;
 import cz.msebera.android.httpclient.Header;
 import near2u.com.near2u.helpers.ServerHelper;
 
+/**
+ * activity for new post view
+ */
 public class NewPostActivity extends AppCompatActivity {
 
     EditText textET;
@@ -96,7 +99,7 @@ public class NewPostActivity extends AppCompatActivity {
     }
 
     /**
-     * Method that performs RESTful webservice invocations
+     * Method that performs RESTful webservice invocations.
      *
      * @param params
      * @throws JSONException
@@ -120,8 +123,7 @@ public class NewPostActivity extends AppCompatActivity {
                     JSONObject obj = new JSONObject(new String(responseBody));
                     // When the JSON response has status boolean value assigned with true
                     if (obj.getString("message") != null) {
-//                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
-                        // Navigate to posts screen
+                        // The new post has been created, navigate to posts screen
                         navigateToPostsPage();
 
                     }

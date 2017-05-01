@@ -22,6 +22,9 @@ import java.io.UnsupportedEncodingException;
 import cz.msebera.android.httpclient.Header;
 import near2u.com.near2u.helpers.ServerHelper;
 
+/**
+ * activity for new topic view
+ */
 public class NewTopicActivity extends AppCompatActivity {
 
     Intent intent;
@@ -58,7 +61,6 @@ public class NewTopicActivity extends AppCompatActivity {
 
         // Get title value
         String title = titleET.getText().toString();
-
 
         // Get text value
         String text = textET.getText().toString();
@@ -126,10 +128,8 @@ public class NewTopicActivity extends AppCompatActivity {
                     JSONObject obj = new JSONObject(new String(responseBody));
                     // When the JSON response has status boolean value assigned with true
                     if (obj.getString("message") != null) {
-//                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
-                        // Navigate to topics screen
+                        // The new topic has been created, navigate to topics screen
                         navigateToTopicsPage();
-
                     }
                     // Else display error message
                     else {

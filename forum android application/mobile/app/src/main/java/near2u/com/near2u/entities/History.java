@@ -2,12 +2,15 @@ package near2u.com.near2u.entities;
 
 import java.util.Date;
 
-
+/**
+ * Class that represents a message of the user
+ * in the list of his history.
+ */
 public class History {
 
     int id;
     String message;
-    String recepientName;
+    String recipientName;
     String senderName;
     boolean isUserRecipient;
     String date;
@@ -28,12 +31,12 @@ public class History {
         this.id = id;
     }
 
-    public String getRecepientName() {
-        return recepientName;
+    public String getRecipientName() {
+        return recipientName;
     }
 
-    public void setRecepientName(String recepientName) {
-        this.recepientName = recepientName;
+    public void setRecipientName(String recipientName) {
+        this.recipientName = recipientName;
     }
 
     public String getSenderName() {
@@ -62,6 +65,6 @@ public class History {
 
     @Override
     public String toString() {
-        return senderName + " sent to " + recepientName + "\n" + message + "\n" + " on " + date;
+        return senderName + " sent to " + recipientName + "\n" + message + "\n" + " on " + date;
     }
 }

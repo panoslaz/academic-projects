@@ -19,6 +19,9 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 import near2u.com.near2u.helpers.ServerHelper;
 import near2u.com.near2u.helpers.SessionManager;
 
+/**
+ * Activity for the send message view.
+ */
 public class SendMessageActivity extends Activity {
 
 	EditText messageET;
@@ -67,12 +70,6 @@ public class SendMessageActivity extends Activity {
         // Show Progress Dialog
          prgDialog.show();
 
-//         JSONObject jsonParams = new JSONObject();
-//         jsonParams.put("message", messageET.getText().toString());
-//         jsonParams.put("userId", 1);
-//         StringEntity entity = new StringEntity(jsonParams.toString());
-
-
          // Make RESTful webservice call using AsyncHttpClient object
          AsyncHttpClient client = new AsyncHttpClient();
          client.post("http://" + ServerHelper.getIP()+ "/near2u2/message", params, new AsyncHttpResponseHandler() {
@@ -88,8 +85,6 @@ public class SendMessageActivity extends Activity {
                      // When the JSON response has status boolean value assigned with true
                      if (obj.getString("message") != null) {
                          Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
-//                             // Navigate to Home screen
-//                             navigatetoHomeActivity();
                      }
                      // Else display error message
                      else {

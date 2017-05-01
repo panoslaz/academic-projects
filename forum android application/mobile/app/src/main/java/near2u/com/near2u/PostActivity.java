@@ -26,6 +26,9 @@ import near2u.com.near2u.entities.Post;
 import near2u.com.near2u.helpers.ServerHelper;
 import near2u.com.near2u.helpers.SessionManager;
 
+/**
+ * Activity for the post view
+ */
 public class PostActivity extends AppCompatActivity {
 
     TextView view;
@@ -55,6 +58,11 @@ public class PostActivity extends AppCompatActivity {
             postListView.setAdapter(adapter);
         }
 
+        /**
+         * get all posts for topic and create a list of Post objects
+         * @param params
+         * @return
+         */
         @Override
         protected Post[] doInBackground(String... params) {
             SyncHttpClient client = new SyncHttpClient();
@@ -92,6 +100,10 @@ public class PostActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * if user is not logged in, show the login view, else create a new post
+     * @param view
+     */
     public void addNewPost(View view) {
 
         String username = SessionManager.getFromSession(getApplicationContext(), "username");

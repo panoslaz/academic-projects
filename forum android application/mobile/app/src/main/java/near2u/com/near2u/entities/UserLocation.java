@@ -1,6 +1,9 @@
 package near2u.com.near2u.entities;
 
 
+/**
+ * Class that represents the location of the user.
+ */
 public class UserLocation {
 
     Integer userId;

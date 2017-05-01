@@ -1,5 +1,8 @@
 package near2u.com.near2u.entities;
 
+/**
+ * Class that represents a topic of the forum.
+ */
 public class Topic {
 
     Integer id;

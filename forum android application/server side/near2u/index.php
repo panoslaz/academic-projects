@@ -9,21 +9,19 @@ require_once 'repository/PostRepository.php';
 
 $app = new Slim\App();
 
-// Define app routes
-$app->get('/hello/{name}', function ($request, $response, $args) {
-    return $response->write("Hello " . $args['name']);
-});
+// Define app routes of the application. All responses are in json format
 
+// get messages for user and create the json response
 $app->get('/messages/user/{userId}', function ($request, $response, $args) {
     $messageRepository = new MessageRepository();
     $result = $messageRepository->getMessagesByUserId($args['userId']);
-
 
     $response = array();
     $response['message'] = $result;
     return json_encode($response);
 });
 
+// create new message
 $app->post('/message', function() use ($app) {
 
     // reading post params
@@ -37,6 +35,7 @@ $app->post('/message', function() use ($app) {
     return json_encode($response);
 });
 
+// assign message to multiple recipients
 $app->post('/messages', function() use ($app) {
 
     // reading post params
@@ -48,7 +47,6 @@ $app->post('/messages', function() use ($app) {
     $messageRepository = new MessageRepository();
     $result = $messageRepository->createMessage($message, $userId);
     $messageId = $messageRepository->getMessageByTextAndUser($message, $userId);
-//    die(var_dump($messageId));
     foreach ($recipientIds as $r) {
         $messageRepository->assignMessageToRecipient($messageId['id'], $r);
     }
@@ -79,6 +77,7 @@ $app->post('/messages/broadcast', function() use ($app) {
 
 });
 
+// get user history
 $app->get('/user/{userId}/history', function ($request, $response, $args) {
     $userRepository = new UserRepository();
 
@@ -90,6 +89,7 @@ $app->get('/user/{userId}/history', function ($request, $response, $args) {
     return json_encode($response);
 });
 
+// get all forums
 $app->get('/forums', function ($request, $response, $args) {
     $forumRepository = new ForumRepository();
 
@@ -103,6 +103,7 @@ $app->get('/forums', function ($request, $response, $args) {
 
 
 /**************************** Topics *****************/
+// get all topics for a forum
 $app->get('/topics/forumId/{forumId}', function ($request, $response, $args) {
     $topicRepository = new TopicRepository();
     $result = $topicRepository->getTopicsForForum($args['forumId']);
@@ -113,6 +114,7 @@ $app->get('/topics/forumId/{forumId}', function ($request, $response, $args) {
     return json_encode($response);
 });
 
+// create new topic
 $app->post('/topics', function() use ($app) {
 
     // reading post params
@@ -129,6 +131,7 @@ $app->post('/topics', function() use ($app) {
 });
 
 /**************************** Posts *****************/
+// get posts for topic
 $app->get('/posts/topicId/{topicId}', function ($request, $response, $args) {
     $postRepository = new PostRepository();
     $result = $postRepository->getPostsForTopic($args['topicId']);
@@ -139,6 +142,7 @@ $app->get('/posts/topicId/{topicId}', function ($request, $response, $args) {
     return json_encode($response);
 });
 
+// create new post
 $app->post('/posts', function() use ($app) {
 
     // reading post params
@@ -154,6 +158,7 @@ $app->post('/posts', function() use ($app) {
 });
 
 /*************************** Login User *********************/
+// service for logging the user in the application
 $app->get('/user/login', function ($request, $response, $args) {
 
     $username = $_REQUEST["username"];
@@ -174,6 +179,7 @@ $app->get('/user/login', function ($request, $response, $args) {
 
 
 /***************** History *****************/
+// create a new location for a user
 $app->post('/user/history', function() use ($app) {
 
     // reading post params
@@ -189,6 +195,7 @@ $app->post('/user/history', function() use ($app) {
     return json_encode($response);
 });
 
+// get the location of a user
 $app->get('/user/location', function ($request, $response, $args) {
     $userRepository = new UserRepository();
     $result = $userRepository->getUserRecentLocations();
@@ -198,7 +205,7 @@ $app->get('/user/location', function ($request, $response, $args) {
     return json_encode($response);
 });
 
-
+// get user details
 $app->get('/user/details/{username}', function ($request, $response, $args) {
     $userRepository = new UserRepository();
     $result = $userRepository->getUserDetails($args['username']);

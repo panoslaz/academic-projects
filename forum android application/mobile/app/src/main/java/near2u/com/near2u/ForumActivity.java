@@ -31,6 +31,9 @@ import cz.msebera.android.httpclient.Header;
 import near2u.com.near2u.entities.Forum;
 import near2u.com.near2u.helpers.ServerHelper;
 
+/**
+ * Activity for the forum list view.
+ */
 public class ForumActivity extends Activity {
 
     ArrayAdapter<Forum> adapter;
@@ -42,9 +45,11 @@ public class ForumActivity extends Activity {
         setContentView(R.layout.forum_activity);
 
         forumListView = (ListView) findViewById(R.id.forumlistView);
-
+        // on create get the list of active forums
         new getForums().execute();
     }
+
+
     private class getForums extends AsyncTask<String, Void, Forum[]> {
 
         protected void onPostExecute(Forum[] forums) {
@@ -61,8 +66,6 @@ public class ForumActivity extends Activity {
                     intent.putExtra("title", f.getDescription());
                     intent.putExtra("forumId", f.getId());
                     startActivity(intent);
-
-//                    Toast.makeText(getBaseContext(), String.valueOf(f.getId()), Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -72,13 +75,14 @@ public class ForumActivity extends Activity {
             SyncHttpClient client = new SyncHttpClient();
             final List<Forum> forums = new ArrayList<Forum>();
 
+            // call the service to get the forums
             client.get("http://" + ServerHelper.getIP()+ "/near2u2/forums", new RequestParams(),new JsonHttpResponseHandler() {
-
 
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject jsonObj) {
 
                     try {
+                        // parse the json array and create an array of Forum objects
                         JSONArray forumsArray = jsonObj.getJSONArray("forums");
                         JSONObject o;
                         for (int i = 0; i < forumsArray.length(); i++) {

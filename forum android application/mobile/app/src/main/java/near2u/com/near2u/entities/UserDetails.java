@@ -2,7 +2,9 @@ package near2u.com.near2u.entities;
 
 import java.util.Date;
 
-
+/**
+ * Class that represents the details of a user.
+ */
 public class UserDetails {
 
     Integer userId;

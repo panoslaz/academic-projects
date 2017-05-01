@@ -1,5 +1,8 @@
 package near2u.com.near2u.entities;
 
+/**
+ * Class that represents a post on a topic.
+ */
 public class Post {
 
     Integer id;

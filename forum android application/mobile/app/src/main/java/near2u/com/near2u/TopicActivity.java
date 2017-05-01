@@ -27,6 +27,9 @@ import near2u.com.near2u.entities.Topic;
 import near2u.com.near2u.helpers.ServerHelper;
 import near2u.com.near2u.helpers.SessionManager;
 
+/**
+ * Activity for the topic list view.
+ */
 public class TopicActivity extends AppCompatActivity  {
 
     TextView view;
@@ -39,9 +42,6 @@ public class TopicActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
 
-//        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-//        setSupportActionBar(myToolbar);
-
         intent = getIntent();
         String title = intent.getStringExtra("title");
         // set title
@@ -49,8 +49,10 @@ public class TopicActivity extends AppCompatActivity  {
         view.setText(title);
 
         topicListView = (ListView) findViewById(R.id.topicsListView);
+        // get the topics of the selected forum
         new getTopics().execute();
     }
+
 
     private class getTopics extends AsyncTask<String, Void, Topic[]> {
 
@@ -63,26 +65,29 @@ public class TopicActivity extends AppCompatActivity  {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     //get the selected topic
                     Topic t = (Topic) topicListView.getAdapter().getItem(position);
-                    //load the topics page
+                    //when clicking on a topic, load the posts page
                     Intent tIntent = new Intent(TopicActivity.this, PostActivity.class);
                     tIntent.putExtra("topicTitle", t.getTitle());
                     tIntent.putExtra("topicId", t.getId());
                     tIntent.putExtra("topicForumId", intent.getIntExtra("forumId", 1));
                     tIntent.putExtra("topicForumDescription", intent.getStringExtra("title"));
                     startActivity(tIntent);
-
-//                    Toast.makeText(getBaseContext(), String.valueOf(f.getId()), Toast.LENGTH_LONG).show();
                 }
             });
         }
 
+        /**
+         *
+         * Call the back end service to get the list of topics for a forum and create the list
+         * @param params
+         * @return
+         */
         @Override
         protected Topic[] doInBackground(String... params) {
             SyncHttpClient client = new SyncHttpClient();
             final List<Topic> topics = new ArrayList<Topic>();
             Integer forumId = intent.getIntExtra("forumId", 1);
             client.get("http://" + ServerHelper.getIP()+ "/near2u2/topics/forumId/" + forumId, new RequestParams(),new JsonHttpResponseHandler() {
-
 
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject jsonObj) {
@@ -104,6 +109,11 @@ public class TopicActivity extends AppCompatActivity  {
         }
     }
 
+    /**
+     * add a new topic. If the user is not logged in, start the login activity,
+     * else start the newTopicActivity.
+     * @param view
+     */
     public void addNewTopic(View view) {
 
         String username = SessionManager.getFromSession(getApplicationContext(), "username");
@@ -121,6 +131,10 @@ public class TopicActivity extends AppCompatActivity  {
         }
     }
 
+    /**
+     * go back to forums list
+     * @param view
+     */
     public void backToForums(View view) {
 
         Intent forumIntent = new Intent(this, ForumActivity.class);

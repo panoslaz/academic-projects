@@ -14,6 +14,9 @@ class UserRepository
         $this->conn = $db->connect();
     }
 
+    /**
+     * get the messages that a user is a recipient or a sender
+     */
     function getHistoryForUser($userId) {
 
         $stmt = $this->conn->prepare("SELECT * FROM n2u_message INNER JOIN n2u_message_to_receivers
@@ -33,6 +36,9 @@ where from_user_id=? or receiver_id=? order by DATE_SENT DESC ");
 
     }
 
+    /**
+     * get locations of a user
+     */
     function getLocationHistoryForUser($userId) {
 
         $stmt = $this->conn->prepare("SELECT * FROM n2u_user_history where user_id=? order by date_visited DESC");
@@ -50,6 +56,9 @@ where from_user_id=? or receiver_id=? order by DATE_SENT DESC ");
 
     }
 
+    /**
+     * create location - user entry
+     */
     function addLocationForUser($userId, $longitude, $latitude) {
 
         $stmt = $this->conn->prepare("INSERT INTO n2u_user_history(user_id, longitude, latitude, date_visited) values(?, ?, ?, NOW())");

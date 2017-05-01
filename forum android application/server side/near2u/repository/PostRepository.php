@@ -13,6 +13,9 @@ class PostRepository
         $this->conn = $db->connect();
     }
 
+    /**
+     * get posts for a topic
+     */
     function getPostsForTopic($topicId) {
 
         $stmt = $this->conn->prepare("SELECT * FROM n2u_forum_post WHERE topic_id=? ORDER BY date_created DESC");
@@ -29,6 +32,9 @@ class PostRepository
         return $forums;
     }
 
+    /**
+     * create a new post
+     */
     function addPost($text, $userId, $topicId) {
 
         $stmt = $this->conn->prepare("INSERT INTO n2u_forum_post(text, user_id, topic_id, date_created) values(?, ?, ?, NOW())");

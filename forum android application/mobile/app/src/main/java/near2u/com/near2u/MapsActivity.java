@@ -50,6 +50,9 @@ import near2u.com.near2u.entities.UserLocation;
 import near2u.com.near2u.helpers.ServerHelper;
 import near2u.com.near2u.helpers.SessionManager;
 
+/**
+ *  activity for google maps view
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback  {
 
     private GoogleMap mMap;

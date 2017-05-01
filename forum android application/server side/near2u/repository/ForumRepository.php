@@ -13,6 +13,10 @@ class ForumRepository
         $this->conn = $db->connect();
     }
 
+    /**
+     * get list of forums from the database
+     * @return array
+     */
     function getForums() {
 
         $stmt = $this->conn->prepare("SELECT * FROM n2u_forum_category");
